@@ -9,10 +9,10 @@ async def create_account(data):
     sender, command = data.values()
 
     payload = {
-        "firstName": f"customer_{sender.replace(" + "," ")}",
+        "firstName": f"customer_{sender.replace('+','')}",
         "phoneNumber": sender,
-        "emailAddress": f"customer_{sender.replace(" + "," ")}@moneeshare.com",
-        "externalReference": f"{sender.replace(" + "," ")}",
+        "emailAddress": f"customer_{sender.replace('+','')}@moneeshare.com",
+        "externalReference": f"{sender.replace('+','')}",
     }
     account = await haven.create_account(payload)
     print(account)
@@ -49,10 +49,10 @@ async def create_account(data):
     return response
 
     # payload = {
-    #     "firstName": f"customer_{sender.replace(" + "," ")}",
+    #     "firstName": f"customer_{sender.replace('+','')}",
     #     "phoneNumber": sender,
-    #     "emailAddress": f"customer_{sender.replace(" + "," ")}@moneeshare.com",
-    #     "externalReference": f"{sender.replace(" + "," ")}",
+    #     "emailAddress": f"customer_{sender.replace('+','')}@moneeshare.com",
+    #     "externalReference": f"{sender.replace('+','')}",
     # }
     # account = await haven.create_account(payload)
     # print(account)

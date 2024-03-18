@@ -86,10 +86,10 @@ async def receive_sms(request: Request):
     # START OF CREATE
     elif "create" in msg:
         payload = {
-            "firstName": f"customer_{sender.replace(" + "," ")}",
+            "firstName": f"customer_{sender.replace('+','')}",
             "phoneNumber": sender,
-            "emailAddress": f"customer_{sender.replace(" + "," ")}@moneeshare.com",
-            "externalReference": f"{sender.replace(" + "," ")}",
+            "emailAddress": f"customer_{sender.replace('+','')}@moneeshare.com",
+            "externalReference": f"{sender.replace('+','')}",
         }
         account = await haven.create_account(payload)
         print(account)
