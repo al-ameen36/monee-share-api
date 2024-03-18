@@ -41,8 +41,8 @@ async def create_user(user: Request):
         payload = {
             "firstName": f"customer_{user['firstName']}",
             "phoneNumber": user["phone"],
-            "emailAddress": f"customer_{user['phone'].replace("+","")}@moneeshare.com",
-            "externalReference": user['phone'].replace("+",""),
+            "emailAddress": f"customer_{user['phone'].replace('+','')}@moneeshare.com",
+            "externalReference": user["phone"].replace("+", ""),
         }
         account = await account_haven.create_account(payload)
 
@@ -60,7 +60,7 @@ async def create_user(user: Request):
         #     "password": user.get("password", ""),
         # }
         # db_account = await account_DB.create_account()
-        
+
         # response = await database.add_message(
         #     {
         #         "phone": user["phone"],
